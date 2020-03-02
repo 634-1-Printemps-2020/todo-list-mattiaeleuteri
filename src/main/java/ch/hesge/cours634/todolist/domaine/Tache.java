@@ -1,21 +1,31 @@
-package domaine;
+package ch.hesge.cours634.todolist.domaine;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Tache {
-    private String createur;
+    private User createur;
     private String description;
-    private String date;
-    enum Status {open, closed, canceled}
+    private Date date;
     private Status status;
-    enum Resolution {done, ignored}
     private Resolution resolution;
 
-    public Tache(String createur, String description, String date, Status status, Resolution resolution) {
+    public Tache(User createur, String description, Date date) {
         this.createur = createur;
         this.description = description;
         this.date = date;
+        this.status = Status.OPEN;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void setResolution(Resolution resolution) {
         this.resolution = resolution;
     }
 
